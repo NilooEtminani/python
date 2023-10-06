@@ -15,7 +15,5 @@ import pytest
 ])
 def test_is_acceptable_password(password, expected):
     assert is_acceptable_password(password) == expected
-
-
 pytest
 
