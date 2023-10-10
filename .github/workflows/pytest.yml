@@ -1,9 +1,9 @@
-name: PyTest
+name: PyTest with Coverage
 
 on:
   push:
     branches:
-      - main 
+      - master
 
 jobs:
   test:
@@ -24,6 +24,16 @@ jobs:
           pip install poetry
           poetry install
 
-      - name: Run PyTest
+      - name: Run PyTest with Coverage
         run: |
-          poetry run pytest
+          poetry run coverage run --source your_module -m pytest
+
+      - name: Generate Coverage Report
+        run: |
+          poetry run coverage report --fail-under=80 
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: .coverage
