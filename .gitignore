@@ -1,0 +1,5 @@
+file.txt
+secret.key
+logs/
+*.log
+build/*.exe
