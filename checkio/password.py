@@ -1,7 +1,17 @@
+"""
+Module for password validation.
+"""
+
 def is_acceptable_password(password: str) -> bool:
-    if (len(password) > 6 and any(char.isdigit() for char in password) and password.isdigit() == False):
+    """
+    Check if a password is acceptable based on length and content.
+
+    Args:
+        password (str): The password to be checked.
+
+    Returns:
+        bool: True if the password is acceptable, False otherwise.
+    """
+    if len(password) > 6 and any(char.isdigit() for char in password) and not password.isdigit():
         return True
-    elif len(password) > 9:
-        return True
-    else:
-        return False
+    return len(password) > 9
