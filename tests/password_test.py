@@ -1,6 +1,7 @@
 from checkio import password
 import pytest
 
+
 def test_is_acceptable_password():
     # Test cases where the password should be considered acceptable
     assert password.is_acceptable_password("short54") == True
